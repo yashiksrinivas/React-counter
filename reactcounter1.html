@@ -1,0 +1,99 @@
+<!--use state are hook type
+that could store data and update comonent-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>reactcounter</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20%;
+        }
+
+        #paragraph{
+            text-align: center;
+        }
+
+        #align{
+            gap: 30px;
+        }
+        
+        #styling{
+            background-color: red;
+            color: white;
+        }
+
+        #colors{
+            background-color: rgb(103, 207, 103);
+            color: white;
+            margin-left: 25px;
+        }
+
+        #heading{
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div id="component">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+              class Learning extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state={parameter:0} 
+                }
+                componentDidmount(){
+                    console.log("component mounted")
+                }
+
+                /*methods with logic*/ 
+
+                increment=()=>{this.setState({parameter:this.state.parameter +1})}
+
+                decrement=()=>{this.setState({parameter:this.state.parameter -1})}
+              
+
+            render(){
+                return (
+                    <div>
+                        <h2 id="heading">Counter App</h2>
+
+                        <p id="paragraph">{this.state.parameter}</p>
+
+                        <div id="align">
+                        <button id="styling" onClick={this.decrement} disabled={
+                            this.state.parameter ===0}>Decrement</button>
+                        <button id="colors" onClick={this.increment}>Increment</button> 
+                           </div> 
+
+                    </div>    
+                )
+            }
+          
+        }
+
+           
+
+        ReactDOM.render(<Learning /*variable="parameter"*//>,document.getElementById("component"))
+    </script>
+
+</body>
+
+</html>
